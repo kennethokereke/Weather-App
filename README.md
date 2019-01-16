@@ -1,8 +1,10 @@
 # Weather-App
 React Native Weather App using openweather API
 
-<img src="https://github.com/CS691team3/CS691team3project/blob/master/assets/weatherapp.jpg" alt="alt text" width="250" height="250" 
-data-canonical-src="https://github.com/CS691team3/CS691team3project/blob/master/assets/weatherapp.jpg"> 
+<img src="https://github.com/Weather-App/weatherapp/blob/master/assets/weatherapp.jpg" alt="alt text" width="250" height="250" 
+data-canonical-src="https://github.com/Weather-App/weatherapp/blob/master/assets/weatherapp.jpg"> 
+
+
 
 ## Requirements
 The following packages are required to run this application example:
