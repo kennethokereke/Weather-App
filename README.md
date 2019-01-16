@@ -1,8 +1,7 @@
 # Weather-App
 React Native Weather App using openweather API
 
-<img src="https://github.com/Weather-App/weatherapp/blob/master/assets/weatherapp.jpg" alt="alt text" width="250" height="250" 
-data-canonical-src="https://github.com/Weather-App/weatherapp/blob/master/assets/weatherapp.jpg"> 
+![alt text](https://github.com/kennethokereke/Weather-App/blob/master/weatherapp/assets/weatherapp.jpg)
 
 
 
