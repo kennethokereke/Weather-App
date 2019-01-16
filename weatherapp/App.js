@@ -1,4 +1,5 @@
 import React from 'react';
+/** components imported from  react native  */
 import {
   StyleSheet,
   View,
@@ -11,7 +12,9 @@ import {
   Button
 } from 'react-native';
 
-
+/** importing files to greab their data similar to a struct in Swift
+ * In a way its a communication between other JS files
+  */
 import { Constants, Location, Permissions } from 'expo';
 import { fetchOpenWeatherCity, fetchOpenWeatherGPS } from './util/api'
 import Getimageweather from './util/getimageweather'
@@ -19,6 +22,7 @@ import SearchInput from './Component/src/SearchInput';
 import Unit from './util/tempunit'
 
 export default class App extends React.Component {
+   /** an array */
     state = {
         loading: false,
         error: false,
@@ -34,11 +38,12 @@ export default class App extends React.Component {
 
 
 
-      
+     
       componentDidMount() {
+         /* Detect location */
         this.handleGetLocation();
       }
-
+       /* Detect current location */
       handleGetLocation = async () => {
         const {status} = await Permissions.askAsync(Permissions.LOCATION);
         if (status !== "granted") {
@@ -47,14 +52,14 @@ export default class App extends React.Component {
         const {coords} = await Location.getCurrentPositionAsync({});
         this.handleUpdateGPS(coords);
       }
-
+      /** async fetches data to update location*/
       handleUpdateLocation = async city => {
         if (!city) return;
     
         this.setState({ loading: true }, async () => {
           try {
             const { location, weather, lowTemp, highTemp } = await fetchOpenWeatherCity(city);
-            
+            /** if complete it will update*/
             this.setState({
               loading: false,
               error: false,
@@ -63,6 +68,7 @@ export default class App extends React.Component {
               lowTemp,
               highTemp
             });
+            /** If fails an error will show */
           } catch (e) {
             this.setState({
               loading: false,
@@ -71,7 +77,10 @@ export default class App extends React.Component {
           }
         });
       };
-
+      
+      /** Not in the instruction wanted to fetch data to update current location when
+       * app is just opening
+       */
       handleUpdateGPS = async coords => {
         if (!coords) return;
         this.setState({ loading: true }, async () => {
@@ -97,10 +106,11 @@ export default class App extends React.Component {
 
 
 
-
+     /**Renders returns JSX  */
     render() {
         const { loading, error, location, weather, lowTemp, highTemp, unit = Unit.FAHRENHEIT, decimalPlaces = 0 } = this.state;
         return (
+          /** data here will be displayed in app */
             <KeyboardAvoidingView style={styles.container} behavior="padding">
             <StatusBar barStyle="light-content" />
             <ImageBackground
@@ -158,6 +168,10 @@ export default class App extends React.Component {
     }
 
 }
+
+/** Stylesheet is treated to design your app. 
+ * Flex works the same way in React Native as it does 
+ * in CSS on the web */
 
 const styles = StyleSheet.create({
 container: {

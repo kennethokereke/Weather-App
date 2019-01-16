@@ -1,3 +1,5 @@
+
+/** Created an array of images with properties */
 const images  = {
     Clear : require('../assets/clear.jpg'),
     Hail : require('../assets/hail.jpg'),
