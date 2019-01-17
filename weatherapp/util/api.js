@@ -23,12 +23,14 @@ export const fetchOpenWeatherCity = async city => {
    * Fetches long and lat for current location
   */
   export const fetchOpenWeatherGPS = async coords => {
+    /** debuggin purposes tryting to fetch the coordinates long and lat */
     console.log(coords);
     const response = await fetch(
       `http://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=1327715149e61ca76a89d587a5806f58&units=metric`,
     );
     /** awaits means exists the aync tells the program to continue runngin
      * when a given task is complete
+     * {main, weather, name } are the keys written in the link above
      */
         const { main, weather, name } = await response.json();
   

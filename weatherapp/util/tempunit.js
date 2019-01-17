@@ -6,7 +6,7 @@ export default class TemperatureUnit {
     }
   
     
-    
+    /**Getting the Fahrenhiet symbol */
     static getSymbolForUnit(unit) {
       switch (unit) {
         

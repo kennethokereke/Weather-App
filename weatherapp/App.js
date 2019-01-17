@@ -1,5 +1,5 @@
 import React from 'react';
-/** components imported from  react native  */
+/** elements in React native  */
 import {
   StyleSheet,
   View,
@@ -38,24 +38,30 @@ export default class App extends React.Component {
 
 
 
-     
+     /**the first function that loads when the app starts */
       componentDidMount() {
          /* Detect location */
         this.handleGetLocation();
       }
        /* Detect current location */
       handleGetLocation = async () => {
+        /** Expo will ask for your permission to access current location
+         * Why is status in {brackets} because with in the Object array I am only
+         * looking for status
+         * 
+         */
         const {status} = await Permissions.askAsync(Permissions.LOCATION);
         if (status !== "granted") {
           this.setState({error: true});
         }
+        /** Grabbing the object coords */
         const {coords} = await Location.getCurrentPositionAsync({});
         this.handleUpdateGPS(coords);
       }
       /** async fetches data to update location*/
       handleUpdateLocation = async city => {
         if (!city) return;
-    
+        /** It will be loading */
         this.setState({ loading: true }, async () => {
           try {
             const { location, weather, lowTemp, highTemp } = await fetchOpenWeatherCity(city);

@@ -3,7 +3,7 @@ import { StyleSheet, TextInput, View, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
 export default class SearchInput extends React.Component {
-
+ /** Text is empty */
   state = {
     text:"",
    
